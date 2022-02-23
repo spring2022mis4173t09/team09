@@ -61,9 +61,7 @@ unset($_SESSION["SessionStatus"]);
 										<h2>Menu</h2>
 									</header>
 									<ul>
-										<li><a href="cases.php">Cases</a></li>
 										<li><a href="clients.php">Clients</a></li>
-										<li><a href="people.php">People</a></li>
 										<li><a href="logout.php">Log out</a></li>
 									</ul>
 								</nav>

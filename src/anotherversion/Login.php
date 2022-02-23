@@ -72,7 +72,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
 									<?php
 										if (isset($_SESSION["SessionStatus"]))
 										{
-											header("Location: cases.php");
+											header("Location: clients.php");
 											die();
 										} 
 										else

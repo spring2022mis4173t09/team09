@@ -48,7 +48,7 @@
 									<hr class="major" />
 									<h2>Courses Taken at East Carolina University</h2>
 									<a href="courses"/>
-									<h5 align="right"><a href="courseEntry.php" class="button">Add Courses</a></h5>
+									<h5 align="right"><a href="clientEntry.php" class="button">Add Courses</a></h5>
 									<table>
 										<thead>
 											<tr>
@@ -105,7 +105,7 @@
 										<li><a href="skills.html">Skills</a></li>
 										<li><a href="experience.html">Experience</a></li>
 										<li><a href="education.php">Education</a></li>
-										<li><a href="certifications.html">Certifications</a></li>					
+										<li><a href="todelete_certifications.html">Certifications</a></li>					
 									</ul>
 								</nav>
 
