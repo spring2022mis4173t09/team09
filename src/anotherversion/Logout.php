@@ -34,11 +34,11 @@ unset($_SESSION["SessionStatus"]);
 
 							<!-- Content -->
 								<section>
+									<span class="image main"><img src="images/dataentry.jpg" alt="Log Out" /></span>
 									<header class="main">
 										<h1>Log out</h1>
 									</header>
 
-									<span class="image main"><img src="images/dataentry.jpg" alt="Education" /></span>
 
 									<hr class="major" />
 

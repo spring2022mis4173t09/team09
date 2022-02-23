@@ -25,14 +25,14 @@ session_start();
 
 							<!-- Header -->
 								<header id="header">
-									<a href="index.html" class="logo"><strong>Macks Pickett Investigavtive Services, Inc.</strong></a>
-								</header>
+									<h2>Macks Pickett Investigative Services, Inc.</h2>
+								</header>							
 
 							<!-- Content -->
 								<section>
-									<header class="main">
-										<h1>Add Client</h1>
-									</header>
+									<span class="image main"><img src="images/Debit_Card_Image.jpeg" alt="Enter Client Information " /></span>
+									<h3>Add Client</h3>
+									<hr/>
 									<!-- if session is not valid, redirects user to the log in page -->
 									<?php
 										if (!isset($_SESSION["SessionStatus"]))
@@ -42,13 +42,10 @@ session_start();
 										}
 									?>
 
-									<span class="image main"><img src="images/dataentry.jpg" alt="Enter Client Information" /></span>
 
-									<hr class="major" />
-
+									<h3>Client Information</h3>
 									<form method="post" action="clientProcessing.php">
-										<h3>Client Information</h3>
-										Name: <input type="text" name="clientName"/> <br/>
+										Name: <input type="text" name="clientName" required="true"/> <br/>
 										Address: <input type="text" name="address"/> <br/>
 										Phone: <input type="text" name="phone"/> <br/>
 										Attorney: <input type="text" name="attorney"/> <br/>

@@ -68,7 +68,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
 
 							<!-- Content -->
 								<section class="major">
-									<span class="image main"><img src="images/dataentry.jpg" alt="Log In " /></span>
+									<span class="image main"><img src="images/policereport.jpeg" alt="Log In " /></span>
 									<?php
 										if (isset($_SESSION["SessionStatus"]))
 										{

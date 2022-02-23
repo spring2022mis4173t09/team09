@@ -25,14 +25,15 @@ session_start();
 
 							<!-- Header -->
 								<header id="header">
-									<a href="index.html" class="logo"><strong>Macks Pickett Investigative Services, Inc.</strong></a>
+									<h2>Macks Pickett Investigative Services, Inc.</h2>
 								</header>							
 						   
 						  <!-- Content -->
 								<section>
-									<header class="main">
-										<h1>Clients</h1>
-									</header>
+									<span class="image main"><img src="images/policereport.jpeg" alt="Clients" /></span>
+									<h3>Clients By Status</h3>
+									<hr/>
+									
 
 									<!-- if session is not valid, redirects user to the log in page -->
 									<?php
@@ -42,9 +43,8 @@ session_start();
 											die();
 										}
 									?>
-									<span class="image main"><img src="images/education2.jpg" alt="Cases" /></span>
 
-									<hr class="major" />
+
 									<h5 align="right"><a href="clientEntry.php" class="button">Add Client</a></h5>
 									<h3>Prospective Clients</h3>
 									<a href="prospects"/>
