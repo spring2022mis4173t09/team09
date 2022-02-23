@@ -88,7 +88,7 @@ session_start();
 											?>
 										</tbody>
 									</table>
-									<h3>Clients Ready for Investigator Assignment</h3>
+									<h3>Needs Investigator Assignment</h3>
 									<a href="readyforassignment"/>
 									<table>
 										<thead>
@@ -130,7 +130,7 @@ session_start();
 											?>
 										</tbody>
 									</table>
-									<h3>Currently Under Investigation</h3>
+									<h3>Currently Under Active Investigation</h3>
 									<a href="underinvestigation"/>
 									<table>
 										<thead>

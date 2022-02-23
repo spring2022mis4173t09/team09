@@ -33,31 +33,48 @@ session_start();
 									<header class="main">
 										<h1>Add Client</h1>
 									</header>
+									<!-- if session is not valid, redirects user to the log in page -->
+									<?php
+										if (!isset($_SESSION["SessionStatus"]))
+										{
+											header("Location: login.php");
+											die();
+										}
+									?>
 
 									<span class="image main"><img src="images/dataentry.jpg" alt="Enter Client Information" /></span>
 
 									<hr class="major" />
 
-									<?php
-										if (isset($_SESSION["SessionStatus"]))
-										{
-											?>
-											<h5>Please enter the client information:</h5>
-											<form method="post" action="clientProcessing.php">
-												Course number: <input type="text" name="courseNumber"/> <br/>
-												Course name: <input type="text" name="courseName"/> <br/>
-												Course grade: <input type="text" name="courseGrade"/> <br/>
-												<input type="hidden" name="pirateId" value="adamsp18"/>
-												<input type="submit" value="Submit" />
-											</form>
-											<?php
-										}
-										else
-										{
-											echo "<h4>Please <a href='Login.php'>log in</a> before proceeding.</h4><h3><a href='Login.php' class='button'>Log In</a></h3>";
-
-										} 
-									?>								
+									<form method="post" action="clientProcessing.php">
+										<h3>Client Information</h3>
+										Name: <input type="text" name="clientName"/> <br/>
+										Address: <input type="text" name="address"/> <br/>
+										Phone: <input type="text" name="phone"/> <br/>
+										Attorney: <input type="text" name="attorney"/> <br/>
+										Business: <input type="text" name="business"/> <br/>
+										Marital Status: <select id="maritalStatus" name="maritalStatus">
+															<option value="single">Single</option>
+															<option value="married">Married</option>
+															<option value="divorced">Divorced</option>
+														  </select> <br/>
+										Years Married: <input type="text" name="yearsMarried"/> <br/>
+										Number of Children: <input type="text" name="numChildren"/> <br/>
+										Subject: <input type="text" name="subject"/> <br/>
+										Suspect: <input type="text" name="suspect"/> <br/>
+										Status:   <select id="clientStatus" name="clientStatus">
+													<option value="Prospect">Prospective Client</option>
+													<option value="WaitingToBeAssigned">Needs Investigator Assignment</option>
+													<option value="UnderInvestigation">Currently Under Active Investigation</option>
+													<option value="Billing">In Invoicing&#x2F;Billing</option>
+													<option value="Closed">Closed</option>
+												  </select> <br/>
+										Type of Request: <textarea name="requestType" rows="4"></textarea><br/>
+										Additional Notes: <textarea name="notes" rows="4"></textarea><br/>
+										Invoice Number: <input type="text" name="invoiceNumber"/> <br/>
+										<input type="submit" value="Submit" />
+									</form>
+							
 							</section>
 						</div>
 					</div>

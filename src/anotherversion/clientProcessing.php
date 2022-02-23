@@ -28,7 +28,14 @@ session_start();
 									<a href="index.html" class="logo"><strong>Macks Pickett Investigavtive Services, Inc.</strong></a>
 								</header>
 
-							<!-- Content -->
+								<!-- if session is not valid, redirects user to the log in page -->
+								<?php
+									if (!isset($_SESSION["SessionStatus"]))
+									{
+										header("Location: login.php");
+										die();
+									}
+								?>							<!-- Content -->
 								<section>
 									<header class="main">
 										<h1>Education</h1>
