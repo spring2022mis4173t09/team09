@@ -31,7 +31,7 @@ session_start();
 						  <!-- Content -->
 								<section>
 									<header class="main">
-										<h1>Cases</h1>
+										<h1>People</h1>
 									</header>
 									
 									<!-- if session is not valid, redirects user to the log in page -->

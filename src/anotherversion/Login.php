@@ -1,18 +1,42 @@
 <?php
 session_start();
-$userName = "testUser";
-$password = "testPassword";
-
 if ($_SERVER["REQUEST_METHOD"] == "POST")
 { 
-	if ($userName == $_POST["userName"] && $password == $_POST["password"])
+	$userName = $_POST["userName"];
+	$password = $_POST["password"];
+	echo $userName;
+	echo $password;
+	//1. Connect to the DB server
+	$dbConnection = mysqli_connect("localhost", "MIS4153", "pirates4thewin", "MPIS", "3306");
+	//1a.  Check connection
+	if (mysqli_connect_errno())
 	{
-		$_SESSION["SessionStatus"] = "valid";
+		printf("Connection failed. %s\n", mysqli_connect_errno());
+		exit();
+	}
+	//2. Send a query to the DB
+	$sql = "SELECT FirstName, LastName FROM UserAccount WHERE EmailAddress='$userName' AND PasswordHash='$password'";
+	echo $sql;
+	if ($userAccountArray = mysqli_query($dbConnection, $sql))												
+	{
+		//3. Work with the returned data
+		while ($userAccountInfo = mysqli_fetch_assoc($userAccountArray))
+		{
+			echo "<tr>";
+			echo "<td>" . $userAccountInfo['FirstName'] . "</td>";
+			echo "<td>" . $userAccountInfo['LastName'] . "</td>";
+			echo "</tr>";	
+			$_SESSION["SessionStatus"] = "valid";
+		}
+		//4. Release the data
+		mysqli_free_result($userAccountArray);
 	}
 	else
 	{
 		unset($_SESSION["SessionStatus"]);
 	}
+	//5. Close the DB connection
+	mysqli_close($dbConnection);
 }
 ?>
 <!DOCTYPE HTML>
