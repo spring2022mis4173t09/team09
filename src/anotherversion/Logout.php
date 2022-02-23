@@ -1,19 +1,6 @@
 <?php
 session_start();
-$userName = "testUser";
-$password = "testPassword";
-
-if ($_SERVER["REQUEST_METHOD"] == "POST")
-{ 
-	if ($userName == $_POST["userName"] && $password == $_POST["password"])
-	{
-		$_SESSION["SessionStatus"] = "valid";
-	}
-	else
-	{
-		unset($_SESSION["SessionStatus"]);
-	}
-}
+unset($_SESSION["SessionStatus"]);
 ?>
 <!DOCTYPE HTML>
 <!--
@@ -23,7 +10,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
 -->
 <html>
 	<head>
-		<title>Macks Pickett Investigative Services</title>
+		<title>Pamela Adams</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="assets/css/main.css" />
@@ -48,66 +35,38 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
 							<!-- Content -->
 								<section>
 									<header class="main">
-										<h1>Log in</h1>
+										<h1>Log out</h1>
 									</header>
 
 									<span class="image main"><img src="images/dataentry.jpg" alt="Education" /></span>
 
 									<hr class="major" />
 
-									<?php
-										if (isset($_SESSION["SessionStatus"]))
-										{
-											echo "<h3>Login successful.</h3>";
-											echo "<h5>Please continue to the <a class='contact' href='courseEntry.php' class=>course entry page.</a></u></h5><h4><a href='courseEntry.php' class='button'>Enter Course</a></h4>";
-										} 
-										else
-										{
-											?>
-											<h5>Please enter your log in credentials:</h5>
-											<form method="post" action="login.php">
-												Username: <input type="text" name="userName"/> <br/>
-												Password: <input type="password" name="password"/> <br/>
-												<input type="submit" value="Submit" />
-											</form>
-											<?php
-										}
-									?>
-							</section>
+									<p>
+										<h3>You have now been logged off.</h3>
+										<h3><a href="Login.php">Go to log in page.</a></h3>
+										<h3><a href='Login.php' class='button'>Log In</a></h3>
+									</p>
+								</section>
 						</div>
 					</div>
 
-				<!-- Sidebar -->
+					<!-- Sidebar -->
 					<div id="sidebar">
 						<div class="inner">
-								<!-- Menu  
+
+							<!-- Menu -->
 								<nav id="menu">
 									<header class="major">
 										<h2>Menu</h2>
 									</header>
 									<ul>
-										<li><a href="index.html">Home</a></li>
-										<li><a href="skills.html">Skills</a></li>
-										<li><a href="experience.html">Experience</a></li>
-										<li><a href="education.php">Education</a></li>
-										<li><a href="certifications.html">Certifications</a></li>					
+										<li><a href="cases.php">Cases</a></li>
+										<li><a href="clients.php">Clients</a></li>
+										<li><a href="people.php">People</a></li>
+										<li><a href="logout.php">Log out</a></li>
 									</ul>
 								</nav>
- -->
-							
-							<!-- Section -->
-								<section>
-									<header class="major">
-										<h2>Get in touch</h2>
-									</header>
-									<ul class="contact">
-										<li class="icon solid fa-envelope"><a href="mailto:adamsp18@students.ecu.edu">macks</a></li>
-										<li class="icon solid fa-phone">(919) 844-1483</li>
-										<li class="icon solid fa-home">2425 Tiltonshire Lane<br />
-										Apex, NC 27539</li>
-									</ul>
-								</section>
-
 							<!-- Footer -->
 								<footer id="footer">
 									<p class="copyright">&copy; Macks Pickett Investigative Services, Inc. All rights reserved. Demo Images: <a href="https://unsplash.com">Unsplash</a>. Design: <a href="https://html5up.net">HTML5 UP</a>.</p>
