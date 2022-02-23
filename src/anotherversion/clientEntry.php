@@ -31,7 +31,7 @@ session_start();
 							<!-- Content -->
 								<section>
 									<span class="image main"><img src="images/Debit_Card_Image.jpeg" alt="Enter Client Information " /></span>
-									<h3>Add Client</h3>
+									<h3>Add Client Information</h3>
 									<hr/>
 									<!-- if session is not valid, redirects user to the log in page -->
 									<?php
@@ -43,7 +43,6 @@ session_start();
 									?>
 
 
-									<h3>Client Information</h3>
 									<form method="post" action="clientProcessing.php">
 										Name: <input type="text" name="clientName" required="true"/> <br/>
 										Address: <input type="text" name="address"/> <br/>
