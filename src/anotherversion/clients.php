@@ -53,7 +53,7 @@ session_start();
 											<tr>
 												<th width="150px">Client Id</th>
 												<th width="300px">Client Name</th>
-												<th>Suspect Name</th>
+												<th>Phone</th>
 												<th>Status</th>
 											</tr>
 										</thead>
@@ -68,7 +68,7 @@ session_start();
 													exit();
 												}
 												//2. Send a query to the DB
-												$sql = "SELECT c.ClientId, c.Name, s.Name as Suspect FROM Client c INNER JOIN Person s ON c.SuspectPersonId=s.personId WHERE c.Status='Prospect'";
+												$sql = "SELECT c.ClientId, c.Name, Phone FROM Client c WHERE c.Status='Prospect'";
 												if ($clientArray = mysqli_query($dbConnection, $sql))												
 												{
 													//3. Work with the returned data
@@ -77,7 +77,7 @@ session_start();
 														echo "<tr>";
 														echo "<td>" . $clientInfo['ClientId'] . "</td>";
 														echo "<td>" . $clientInfo['Name'] . "</td>";
-														echo "<td>" . $clientInfo['Suspect'] . "</td>";
+														echo "<td>" . $clientInfo['Phone'] . "</td>";
 														echo "</tr>";											
 													}
 													//4. Release the data
@@ -95,7 +95,7 @@ session_start();
 											<tr>
 												<th width="150px">Client Id</th>
 												<th width="300px">Client Name</th>
-												<th>Suspect Name</th>
+												<th>Phone</th>
 												<th>Status</th>
 											</tr>
 										</thead>
@@ -110,7 +110,7 @@ session_start();
 													exit();
 												}
 												//2. Send a query to the DB
-												$sql = "SELECT c.ClientId, c.Name, s.Name as Suspect FROM Client c INNER JOIN Person s ON c.SuspectPersonId=s.personId WHERE c.Status='WaitingToBeAssigned'";
+												$sql = "SELECT c.ClientId, c.Name, Phone FROM Client c WHERE c.Status='WaitingToBeAssigned'";
 												if ($clientArray = mysqli_query($dbConnection, $sql))												
 												{
 													//3. Work with the returned data
@@ -119,7 +119,7 @@ session_start();
 														echo "<tr>";
 														echo "<td>" . $clientInfo['ClientId'] . "</td>";
 														echo "<td>" . $clientInfo['Name'] . "</td>";
-														echo "<td>" . $clientInfo['Suspect'] . "</td>";
+														echo "<td>" . $clientInfo['Phone'] . "</td>";
 														echo "</tr>";											
 													}
 													//4. Release the data
@@ -137,7 +137,7 @@ session_start();
 											<tr>
 												<th width="150px">Client Id</th>
 												<th width="300px">Client Name</th>
-												<th>Suspect Name</th>
+												<th>Phone</th>
 												<th>Status</th>
 											</tr>
 										</thead>
@@ -152,7 +152,7 @@ session_start();
 													exit();
 												}
 												//2. Send a query to the DB
-												$sql = "SELECT c.ClientId, c.Name, s.Name as Suspect FROM Client c INNER JOIN Person s ON c.SuspectPersonId=s.personId WHERE c.Status='UnderInvestigation'";
+												$sql = "SELECT c.ClientId, c.Name, Phone FROM Client c Phone WHERE c.Status='UnderInvestigation'";
 												if ($clientArray = mysqli_query($dbConnection, $sql))												
 												{
 													//3. Work with the returned data
@@ -161,7 +161,7 @@ session_start();
 														echo "<tr>";
 														echo "<td>" . $clientInfo['ClientId'] . "</td>";
 														echo "<td>" . $clientInfo['Name'] . "</td>";
-														echo "<td>" . $clientInfo['Suspect'] . "</td>";
+														echo "<td>" . $clientInfo['Phone'] . "</td>";
 														echo "</tr>";											
 													}
 													//4. Release the data
@@ -179,7 +179,7 @@ session_start();
 											<tr>
 												<th width="150px">Client Id</th>
 												<th width="300px">Client Name</th>
-												<th>Suspect Name</th>
+												<th>Phone</th>
 												<th>Status</th>
 											</tr>
 										</thead>
@@ -194,7 +194,7 @@ session_start();
 													exit();
 												}
 												//2. Send a query to the DB
-												$sql = "SELECT c.ClientId, c.Name, s.Name as Suspect FROM Client c INNER JOIN Person s ON c.SuspectPersonId=s.personId WHERE c.Status='Billing'";
+												$sql = "SELECT c.ClientId, c.Name, Phone FROM Client c WHERE c.Status='Billing'";
 												if ($clientArray = mysqli_query($dbConnection, $sql))												
 												{
 													//3. Work with the returned data
@@ -203,7 +203,7 @@ session_start();
 														echo "<tr>";
 														echo "<td>" . $clientInfo['ClientId'] . "</td>";
 														echo "<td>" . $clientInfo['Name'] . "</td>";
-														echo "<td>" . $clientInfo['Suspect'] . "</td>";
+														echo "<td>" . $clientInfo['Phone'] . "</td>";
 														echo "</tr>";											
 													}
 													//4. Release the data
@@ -221,7 +221,7 @@ session_start();
 											<tr>
 												<th width="150px">Client Id</th>
 												<th width="300px">Client Name</th>
-												<th>Suspect Name</th>
+												<th>Phone</th>
 												<th>Status</th>
 											</tr>
 										</thead>
@@ -236,7 +236,7 @@ session_start();
 													exit();
 												}
 												//2. Send a query to the DB
-												$sql = "SELECT c.ClientId, c.Name, s.Name as Suspect FROM Client c INNER JOIN Person s ON c.SuspectPersonId=s.personId WHERE c.Status='Closed'";
+												$sql = "SELECT c.ClientId, c.Name, s.Phone FROM Client c WHERE c.Status='Closed'";
 												if ($clientArray = mysqli_query($dbConnection, $sql))												
 												{
 													//3. Work with the returned data
@@ -245,7 +245,7 @@ session_start();
 														echo "<tr>";
 														echo "<td>" . $clientInfo['ClientId'] . "</td>";
 														echo "<td>" . $clientInfo['Name'] . "</td>";
-														echo "<td>" . $clientInfo['Suspect'] . "</td>";
+														echo "<td>" . $clientInfo['Phone'] . "</td>";
 														echo "</tr>";											
 													}
 													//4. Release the data
