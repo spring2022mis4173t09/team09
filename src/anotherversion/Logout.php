@@ -26,26 +26,23 @@ unset($_SESSION["SessionStatus"]);
 
 							<!-- Header -->
 								<header id="header">
-									<a href="index.html" class="logo"><strong>Pamela Adams</strong></a>
-									<ul class="icons">
-											<li><a href="https://www.linkedin.com/in/pamadams/" target="_blank" class="icon brands fa-linkedin"><span class="label">LinkedIn</span></a></li>
-									</ul>
+									<h3>Macks Pickett Investigative Services, Inc.</h3>
 								</header>
 
 							<!-- Content -->
 								<section>
 									<span class="image main"><img src="images/dataentry.jpg" alt="Log Out" /></span>
 									<header class="main">
-										<h1>Log out</h1>
+										<h3>Log out</h3>
 									</header>
 
 
 									<hr class="major" />
 
 									<p>
-										<h3>You have now been logged off.</h3>
-										<h3><a href="Login.php">Go to log in page.</a></h3>
-										<h3><a href='Login.php' class='button'>Log In</a></h3>
+										<h5>You have now been logged off.</h5>
+										<h5><a href="Login.php">Go to log in page.</a></h5>
+										<h5><a href='Login.php' class='button'>Log In</a></h5>
 									</p>
 								</section>
 						</div>

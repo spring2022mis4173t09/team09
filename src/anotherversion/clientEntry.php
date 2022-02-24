@@ -25,7 +25,7 @@ session_start();
 
 							<!-- Header -->
 								<header id="header">
-									<h2>Macks Pickett Investigative Services, Inc.</h2>
+									<h3>Macks Pickett Investigative Services, Inc.</h3>
 								</header>							
 
 							<!-- Content -->

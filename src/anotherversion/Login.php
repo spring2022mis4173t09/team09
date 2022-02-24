@@ -63,7 +63,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
 
 							<!-- Header -->
 								<header id="header">
-									<a href="index.html" class="logo"><strong>Macks Pickett Investigative Services, Inc.</strong></a>
+									<h3>Macks Pickett Investigative Services, Inc.</h3>
 								</header>
 
 							<!-- Content -->
@@ -78,7 +78,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
 										else
 										{
 											?>
-											<h5>Please enter your log in credentials:</h5>
+											<h3>Please enter your log in credentials:</h3>
 											<form method="post" action="login.php">
 												Username: <input type="text" name="userName"/> <br/>
 												Password: <input type="password" name="password"/> <br/>

@@ -25,7 +25,7 @@ session_start();
 
 							<!-- Header -->
 								<header id="header">
-									<h2>Macks Pickett Investigative Services, Inc.</h2>
+									<h3>Macks Pickett Investigative Services, Inc.</h3>
 								</header>							
 						   
 						  <!-- Content -->
@@ -46,7 +46,7 @@ session_start();
 
 
 									<h5 align="right"><a href="clientEntry.php" class="button">Add Client</a></h5>
-									<h3>Prospective Clients</h3>
+									<h4>Prospective Clients</h4>
 									<a href="prospects"/>
 									<table>
 										<thead>
@@ -88,7 +88,7 @@ session_start();
 											?>
 										</tbody>
 									</table>
-									<h3>Needs Investigator Assignment</h3>
+									<h4>Needs Investigator Assignment</h4>
 									<a href="readyforassignment"/>
 									<table>
 										<thead>
@@ -130,7 +130,7 @@ session_start();
 											?>
 										</tbody>
 									</table>
-									<h3>Currently Under Active Investigation</h3>
+									<h4>Currently Under Active Investigation</h4>
 									<a href="underinvestigation"/>
 									<table>
 										<thead>
@@ -172,7 +172,7 @@ session_start();
 											?>
 										</tbody>
 									</table>
-									<h3>In Invoicing/Billing</h3>
+									<h4>In Invoicing/Billing</h4>
 									<a href="invoicing"/>
 									<table>
 										<thead>
@@ -214,7 +214,7 @@ session_start();
 											?>
 										</tbody>
 									</table>
-									<h3>Closed</h3>
+									<h4>Closed</h4>
 									<a href="closedclients"/>
 									<table>
 										<thead>
