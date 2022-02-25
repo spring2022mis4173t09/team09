@@ -62,7 +62,8 @@ session_start();
 												<th width="150px">Client Id</th>
 												<th width="300px">Client Name</th>
 												<th>Phone</th>
-												<th>Status</th>
+												<th align="right"></th>
+												<th align="left"></th>
 											</tr>
 										</thead>
 										<tbody>
@@ -78,13 +79,13 @@ session_start();
 														echo "<td>" . $clientInfo['ClientId'] . "</td>";
 														echo "<td>" . $clientInfo['Name'] . "</td>";
 														echo "<td>" . $clientInfo['Phone'] . "</td>";
+														echo "<td align='right'><a href='clientEntry.php?id=" .$clientInfo['ClientId'] . "' class='icon solid fa-edit' title='Edit'></td>";
+														echo "<td align='left'><a href='changeClientStatus.php?id=" .$clientInfo['ClientId'] . "' class='icon solid fa-exchange-alt' title='Change Status'></a></td>";
 														echo "</tr>";											
 													}
 													//4. Release the data
 													mysqli_free_result(clientArray);
 												}
-//												//5. Close the DB connection
-//												mysqli_close($dbConnection);
 											?>
 										</tbody>
 									</table>
@@ -96,20 +97,13 @@ session_start();
 												<th width="150px">Client Id</th>
 												<th width="300px">Client Name</th>
 												<th>Phone</th>
-												<th>Status</th>
+												<th align="right"></th>
+												<th align="left"></th>
 											</tr>
 										</thead>
 										<tbody>
 											<?php
-//												//1. Connect to the DB server
-//												$dbConnection = mysqli_connect("localhost", "MIS4153", "pirates4thewin", "MPIS", "3306");
-//												//1a.  Check connection
-//												if (mysqli_connect_errno())
-//												{
-//													printf("Connection failed. %s\n", mysqli_connect_errno());
-//													exit();
-//												}
-												//2. Send a query to the DB
+												//RUN WAITING TO BE ASSIGNED QUERY
 												$sql = "SELECT c.ClientId, c.Name, Phone FROM Client c WHERE c.Status='WaitingToBeAssigned'";
 												if ($clientArray = mysqli_query($dbConnection, $sql))												
 												{
@@ -120,13 +114,13 @@ session_start();
 														echo "<td>" . $clientInfo['ClientId'] . "</td>";
 														echo "<td>" . $clientInfo['Name'] . "</td>";
 														echo "<td>" . $clientInfo['Phone'] . "</td>";
+														echo "<td align='right'><a href='clientEntry.php?id=" .$clientInfo['ClientId'] . "' class='icon solid fa-edit' title='Edit'></td>";
+														echo "<td align='left'><a href='changeClientStatus.php?id=" .$clientInfo['ClientId'] . "' class='icon solid fa-exchange-alt' title='Change Status'></a></td>";
 														echo "</tr>";											
 													}
 													//4. Release the data
 													mysqli_free_result(clientArray);
 												}
-//												//5. Close the DB connection
-//												mysqli_close($dbConnection);
 											?>
 										</tbody>
 									</table>
@@ -138,20 +132,13 @@ session_start();
 												<th width="150px">Client Id</th>
 												<th width="300px">Client Name</th>
 												<th>Phone</th>
-												<th>Status</th>
+												<th align="right"></th>
+												<th align="left"></th>
 											</tr>
 										</thead>
 										<tbody>
 											<?php
-//												//1. Connect to the DB server
-//												$dbConnection = mysqli_connect("localhost", "MIS4153", "pirates4thewin", "MPIS", "3306");
-//												//1a.  Check connection
-//												if (mysqli_connect_errno())
-//												{
-//													printf("Connection failed. %s\n", mysqli_connect_errno());
-//													exit();
-//												}
-												//2. Send a query to the DB
+												//RUN UNDER ACTIVE INVESTIGATION QUERY
 												$sql = "SELECT c.ClientId, c.Name, c.Phone FROM Client c WHERE c.Status='UnderInvestigation'";
 												if ($clientArray = mysqli_query($dbConnection, $sql))												
 												{
@@ -162,13 +149,13 @@ session_start();
 														echo "<td>" . $clientInfo['ClientId'] . "</td>";
 														echo "<td>" . $clientInfo['Name'] . "</td>";
 														echo "<td>" . $clientInfo['Phone'] . "</td>";
+														echo "<td align='right'><a href='clientEntry.php?id=" .$clientInfo['ClientId'] . "' class='icon solid fa-edit' title='Edit'></td>";
+														echo "<td align='left'><a href='changeClientStatus.php?id=" .$clientInfo['ClientId'] . "' class='icon solid fa-exchange-alt' title='Change Status'></a></td>";
 														echo "</tr>";											
 													}
 													//4. Release the data
 													mysqli_free_result(clientArray);
 												}
-//												//5. Close the DB connection
-//												mysqli_close($dbConnection);
 											?>
 										</tbody>
 									</table>
@@ -180,20 +167,13 @@ session_start();
 												<th width="150px">Client Id</th>
 												<th width="300px">Client Name</th>
 												<th>Phone</th>
-												<th>Status</th>
+												<th align="right"></th>
+												<th align="left"></th>
 											</tr>
 										</thead>
 										<tbody>
 											<?php
-//												//1. Connect to the DB server
-//												$dbConnection = mysqli_connect("localhost", "MIS4153", "pirates4thewin", "MPIS", "3306");
-//												//1a.  Check connection
-//												if (mysqli_connect_errno())
-//												{
-//													printf("Connection failed. %s\n", mysqli_connect_errno());
-//													exit();
-//												}
-												//2. Send a query to the DB
+												//RUN BILLING QUERY
 												$sql = "SELECT c.ClientId, c.Name, c.Phone FROM Client c WHERE c.Status='Billing'";
 												if ($clientArray = mysqli_query($dbConnection, $sql))												
 												{
@@ -204,13 +184,13 @@ session_start();
 														echo "<td>" . $clientInfo['ClientId'] . "</td>";
 														echo "<td>" . $clientInfo['Name'] . "</td>";
 														echo "<td>" . $clientInfo['Phone'] . "</td>";
+														echo "<td align='right'><a href='clientEntry.php?id=" .$clientInfo['ClientId'] . "' class='icon solid fa-edit' title='Edit'></td>";
+														echo "<td align='left'><a href='changeClientStatus.php?id=" .$clientInfo['ClientId'] . "' class='icon solid fa-exchange-alt' title='Change Status'></a></td>";
 														echo "</tr>";											
 													}
 													//4. Release the data
 													mysqli_free_result(clientArray);
 												}
-//												//5. Close the DB connection
-//												mysqli_close($dbConnection);
 											?>
 										</tbody>
 									</table>
@@ -222,20 +202,13 @@ session_start();
 												<th width="150px">Client Id</th>
 												<th width="300px">Client Name</th>
 												<th>Phone</th>
-												<th>Status</th>
+												<th></th>
+												<th></th>
 											</tr>
 										</thead>
 										<tbody>
 											<?php
-//												//1. Connect to the DB server
-//												$dbConnection = mysqli_connect("localhost", "MIS4153", "pirates4thewin", "MPIS", "3306");
-//												//1a.  Check connection
-//												if (mysqli_connect_errno())
-//												{
-//													printf("Connection failed. %s\n", mysqli_connect_errno());
-//													exit();
-//												}
-												//2. Send a query to the DB
+												//RUN CLOSED QUERY
 												$sql = "SELECT c.ClientId, c.Name, c.Phone FROM Client c WHERE c.Status='Closed'";
 												if ($clientArray = mysqli_query($dbConnection, $sql))												
 												{
@@ -246,6 +219,8 @@ session_start();
 														echo "<td>" . $clientInfo['ClientId'] . "</td>";
 														echo "<td>" . $clientInfo['Name'] . "</td>";
 														echo "<td>" . $clientInfo['Phone'] . "</td>";
+														echo "<td align='right'><a href='clientEntry.php?id=" .$clientInfo['ClientId'] . "' class='icon solid fa-edit' title='Edit'></td>";
+														echo "<td align='left'><a href='changeClientStatus.php?id=" .$clientInfo['ClientId'] . "' class='icon solid fa-exchange-alt' title='Change Status'></a></td>";
 														echo "</tr>";											
 													}
 													//4. Release the data

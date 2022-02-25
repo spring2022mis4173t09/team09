@@ -58,6 +58,8 @@ session_start();
 											$note = $_POST["notes"];
 											$invoiceNumber = $_POST["invoiceNumber"]; 
 											$date = date('Y-m-d H:i:s');
+											$clientId = $_POST["clientId"];
+											echo "clientid=" . $_POST["clientId"];  
 											//1. Connect to the DB server
 											$dbConnection = mysqli_connect("localhost", "MIS4153", "pirates4thewin", "MPIS", "3306");
 											//1a.  Check connection
@@ -67,7 +69,16 @@ session_start();
 												exit();
 											}
 											//2. Send a query to the DB
-											$sql = "INSERT INTO client (Name, Address, Phone, Attorney, Business, MaritalStatus, YearsMarried, NumberChildren, Status, Request, Notes, InvoiceNumber, CreatedOn) Values ('$clientName','$address','$phone','$attorney','$business','$maritalStatus','$yearsMarried','$numChildren','$clientStatus','$clientrequest','$note','$invoiceNumber', '$date')";
+											//if client id is less than 0 then I know it is a new client and we need to do an insert
+											if (clientid < 0)
+											{
+												$sql = "INSERT INTO client (Name, Address, Phone, Attorney, Business, MaritalStatus, YearsMarried, NumberChildren, Status, Request, Notes, InvoiceNumber, CreatedOn) Values ('$clientName','$address','$phone','$attorney','$business','$maritalStatus','$yearsMarried','$numChildren','$clientStatus','$clientrequest','$note','$invoiceNumber', '$date')";												
+											}
+											else
+											{
+												//we know the client id is passed and need to perform an update.
+												$sql = "UPDATE client SET Name='$clientName', Address='$address', Phone='$phone', Attorney='$attorney', Business='$business', MaritalStatus='$maritalStatus', YearsMarried='$yearsMarried', NumberChildren='$numChildren', Status='$clientStatus', Request='$clientrequest', Notes='$note', InvoiceNumber='$invoiceNumber' WHERE ClientId=$clientId";						
+											}
 											echo $sql;
 											
 											mysqli_query($dbConnection, $sql);
@@ -76,7 +87,14 @@ session_start();
 											mysqli_close($dbConnection);
 
 											//ouput of form
-											echo "<h5>Thank you.  Your data was added successfully.</h5><p>Here is the information you submitted.<br/>";
+											if (clientid < 0)
+											{
+												echo "<h5>Thank you.  Your data was added successfully.</h5><p>Here is the information you submitted.<br/>";
+											}
+											else
+											{
+												echo "<h5>Thank you.  Your data was successfully updated.</h5><p>Here is the information you submitted.<br/>";
+											}
 											echo "Name: $clientName<br/>";
 											echo "Address: $address<br/>";
 											echo "Phone: $phone<br/>";

@@ -1244,6 +1244,35 @@ input[type="radio"] + label:before {
     .image.main img {
       width: 100%; }
 
+a[data-tool-tip]{
+    position: relative;
+    text-decoration: none;
+    color: rgba(255,255,255,0.75);
+}
+
+a[data-tool-tip]::after{
+    content: attr(data-tool-tip);
+    display: block;
+    position: absolute;
+    background-color: dimgrey;
+    padding: 1em 3em;
+    color: white;
+    border-radius: 5px;
+    font-size: .5em;
+    bottom: 0;
+    left: -180%;
+    white-space: nowrap;
+    transform: scale(0);
+    transition: 
+    transform ease-out 150ms,
+    bottom ease-out 150ms;
+}
+
+a[data-tool-tip]:hover::after{
+    transform: scale(1);
+    bottom: 200%;
+}
+
 a.image {
   overflow: hidden; }
   a.image img {
@@ -1452,7 +1481,7 @@ table {
     table tbody tr:nth-child(2n + 1) {
       background-color: rgba(230, 235, 237, 0.25); }
   table td {
-    padding: 0.75em 0.75em; }
+	  padding: 0.75em 0.75em; }
   table th {
     color: #3d4449;
     font-size: 0.9em;
