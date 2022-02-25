@@ -56,8 +56,6 @@ session_start();
 														  </select> <br/>
 										Years Married: <input type="text" name="yearsMarried"/> <br/>
 										Number of Children: <input type="text" name="numChildren"/> <br/>
-										Subject: <input type="text" name="subject"/> <br/>
-										Suspect: <input type="text" name="suspect"/> <br/>
 										Status:   <select id="clientStatus" name="clientStatus">
 													<option value="Prospect">Prospective Client</option>
 													<option value="WaitingToBeAssigned">Needs Investigator Assignment</option>

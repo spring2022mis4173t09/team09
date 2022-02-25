@@ -35,29 +35,31 @@ session_start();
 										header("Location: login.php");
 										die();
 									}
-								?>							<!-- Content -->
+								?>							
+								<!-- Content -->
 								<section>
-									<header class="main">
-										<h1>Education</h1>
-									</header>
-
-									<span class="image main"><img src="images/dataentry.jpg" alt="Education" /></span>
-
-									<hr class="major" />
+									<span class="image main"><img src="images/Debit_Card_Image.jpeg" alt="Enter Client Information " /></span>
+									<h3>Client Information Processed</h3>
+									<hr/>
 
 									<?php
 										if (isset($_SESSION["SessionStatus"]))
-										{
-											?>
-											<h1>Course Processed</h1>
-											<?php
-											//variables set from courseEntry.php form post
-											$courseNumber = $_POST["courseNumber"];
-											$courseName = $_POST["courseName"];
-											$courseGrade = $_POST["courseGrade"];
-											$pirateId = $_POST["pirateId"];
+										{ 
+											$clientName = $_POST["clientName"];
+											$address = $_POST["address"];
+											$phone = $_POST["phone"];
+											$attorney = $_POST["attorney"];
+											$business = $_POST["business"];
+											$maritalStatus = $_POST["maritalStatus"];
+											$yearsMarried = $_POST["yearsMarried"];
+											$numChildren = $_POST["numChildren"];
+											$clientStatus = $_POST["clientStatus"];
+											$clientrequest = $_POST["requestType"];
+											$note = $_POST["notes"];
+											$invoiceNumber = $_POST["invoiceNumber"]; 
+											$date = date('Y-m-d H:i:s');
 											//1. Connect to the DB server
-											$dbConnection = mysqli_connect("localhost", "MIS4153", "pirates4thewin", "mis4153");
+											$dbConnection = mysqli_connect("localhost", "MIS4153", "pirates4thewin", "MPIS", "3306");
 											//1a.  Check connection
 											if (mysqli_connect_errno())
 											{
@@ -65,7 +67,8 @@ session_start();
 												exit();
 											}
 											//2. Send a query to the DB
-											$sql = "INSERT INTO courses_taken (Number, Name, Grade, PirateID) Values ('$courseNumber','$courseName','$courseGrade','$pirateId')";
+											$sql = "INSERT INTO client (Name, Address, Phone, Attorney, Business, MaritalStatus, YearsMarried, NumberChildren, Status, Request, Notes, InvoiceNumber, CreatedOn) Values ('$clientName','$address','$phone','$attorney','$business','$maritalStatus','$yearsMarried','$numChildren','$clientStatus','$clientrequest','$note','$invoiceNumber', '$date')";
+											echo $sql;
 											
 											mysqli_query($dbConnection, $sql);
 
@@ -74,10 +77,19 @@ session_start();
 
 											//ouput of form
 											echo "<h5>Thank you.  Your data was added successfully.</h5><p>Here is the information you submitted.<br/>";
-											echo "Course Number: $courseNumber<br/>";
-											echo "Course Name: $courseName<br/>";
-											echo "Course Grade: $courseGrade<br/>";
-											echo "<h5>You can view the submitted information on the <a href='education.php#courses'>education page</a>.</h5><h5><a href='education.php' class='button'>Education</a></h5>";
+											echo "Name: $clientName<br/>";
+											echo "Address: $address<br/>";
+											echo "Phone: $phone<br/>";
+											echo "Attorney: $attorney<br/>";
+											echo "Business: $business<br/>";
+											echo "Marital Status: $maritalStatus<br/>";
+											echo "Years Married: $yearsMarried<br/>";
+											echo "Number of Children: $numChildren<br/>";
+											echo "Status: $clientStatus<br/>";
+											echo "Request: $clientrequest<br/>";
+											echo "Notes: $note<br/>";
+											echo "Invoice Number: $invoiceNumber<br/>";
+											echo "<h5>You can view the submitted information on the <a href='clients.php'>Clients page</a>.</h5><h5><a href='clients.php' class='button'>Clients</a></h5>";
 										}
 										else
 										{

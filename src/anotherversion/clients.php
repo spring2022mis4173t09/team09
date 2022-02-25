@@ -42,6 +42,14 @@ session_start();
 											header("Location: login.php");
 											die();
 										}
+										//FIRST - Open the connection to the DB server
+										$dbConnection = mysqli_connect("localhost", "MIS4153", "pirates4thewin", "MPIS", "3306");
+										//1a.  Check connection
+										if (mysqli_connect_errno())
+										{
+											printf("Connection failed. %s\n", mysqli_connect_errno());
+											exit();
+										}
 									?>
 
 
@@ -59,15 +67,7 @@ session_start();
 										</thead>
 										<tbody>
 											<?php
-												//1. Connect to the DB server
-												$dbConnection = mysqli_connect("localhost", "MIS4153", "pirates4thewin", "MPIS", "3306");
-												//1a.  Check connection
-												if (mysqli_connect_errno())
-												{
-													printf("Connection failed. %s\n", mysqli_connect_errno());
-													exit();
-												}
-												//2. Send a query to the DB
+												//RUN PROSPECTS QUERY
 												$sql = "SELECT c.ClientId, c.Name, Phone FROM Client c WHERE c.Status='Prospect'";
 												if ($clientArray = mysqli_query($dbConnection, $sql))												
 												{
@@ -83,8 +83,8 @@ session_start();
 													//4. Release the data
 													mysqli_free_result(clientArray);
 												}
-												//5. Close the DB connection
-												mysqli_close($dbConnection);
+//												//5. Close the DB connection
+//												mysqli_close($dbConnection);
 											?>
 										</tbody>
 									</table>
@@ -101,14 +101,14 @@ session_start();
 										</thead>
 										<tbody>
 											<?php
-												//1. Connect to the DB server
-												$dbConnection = mysqli_connect("localhost", "MIS4153", "pirates4thewin", "MPIS", "3306");
-												//1a.  Check connection
-												if (mysqli_connect_errno())
-												{
-													printf("Connection failed. %s\n", mysqli_connect_errno());
-													exit();
-												}
+//												//1. Connect to the DB server
+//												$dbConnection = mysqli_connect("localhost", "MIS4153", "pirates4thewin", "MPIS", "3306");
+//												//1a.  Check connection
+//												if (mysqli_connect_errno())
+//												{
+//													printf("Connection failed. %s\n", mysqli_connect_errno());
+//													exit();
+//												}
 												//2. Send a query to the DB
 												$sql = "SELECT c.ClientId, c.Name, Phone FROM Client c WHERE c.Status='WaitingToBeAssigned'";
 												if ($clientArray = mysqli_query($dbConnection, $sql))												
@@ -125,8 +125,8 @@ session_start();
 													//4. Release the data
 													mysqli_free_result(clientArray);
 												}
-												//5. Close the DB connection
-												mysqli_close($dbConnection);
+//												//5. Close the DB connection
+//												mysqli_close($dbConnection);
 											?>
 										</tbody>
 									</table>
@@ -143,16 +143,16 @@ session_start();
 										</thead>
 										<tbody>
 											<?php
-												//1. Connect to the DB server
-												$dbConnection = mysqli_connect("localhost", "MIS4153", "pirates4thewin", "MPIS", "3306");
-												//1a.  Check connection
-												if (mysqli_connect_errno())
-												{
-													printf("Connection failed. %s\n", mysqli_connect_errno());
-													exit();
-												}
+//												//1. Connect to the DB server
+//												$dbConnection = mysqli_connect("localhost", "MIS4153", "pirates4thewin", "MPIS", "3306");
+//												//1a.  Check connection
+//												if (mysqli_connect_errno())
+//												{
+//													printf("Connection failed. %s\n", mysqli_connect_errno());
+//													exit();
+//												}
 												//2. Send a query to the DB
-												$sql = "SELECT c.ClientId, c.Name, Phone FROM Client c Phone WHERE c.Status='UnderInvestigation'";
+												$sql = "SELECT c.ClientId, c.Name, c.Phone FROM Client c WHERE c.Status='UnderInvestigation'";
 												if ($clientArray = mysqli_query($dbConnection, $sql))												
 												{
 													//3. Work with the returned data
@@ -167,8 +167,8 @@ session_start();
 													//4. Release the data
 													mysqli_free_result(clientArray);
 												}
-												//5. Close the DB connection
-												mysqli_close($dbConnection);
+//												//5. Close the DB connection
+//												mysqli_close($dbConnection);
 											?>
 										</tbody>
 									</table>
@@ -185,16 +185,16 @@ session_start();
 										</thead>
 										<tbody>
 											<?php
-												//1. Connect to the DB server
-												$dbConnection = mysqli_connect("localhost", "MIS4153", "pirates4thewin", "MPIS", "3306");
-												//1a.  Check connection
-												if (mysqli_connect_errno())
-												{
-													printf("Connection failed. %s\n", mysqli_connect_errno());
-													exit();
-												}
+//												//1. Connect to the DB server
+//												$dbConnection = mysqli_connect("localhost", "MIS4153", "pirates4thewin", "MPIS", "3306");
+//												//1a.  Check connection
+//												if (mysqli_connect_errno())
+//												{
+//													printf("Connection failed. %s\n", mysqli_connect_errno());
+//													exit();
+//												}
 												//2. Send a query to the DB
-												$sql = "SELECT c.ClientId, c.Name, Phone FROM Client c WHERE c.Status='Billing'";
+												$sql = "SELECT c.ClientId, c.Name, c.Phone FROM Client c WHERE c.Status='Billing'";
 												if ($clientArray = mysqli_query($dbConnection, $sql))												
 												{
 													//3. Work with the returned data
@@ -209,8 +209,8 @@ session_start();
 													//4. Release the data
 													mysqli_free_result(clientArray);
 												}
-												//5. Close the DB connection
-												mysqli_close($dbConnection);
+//												//5. Close the DB connection
+//												mysqli_close($dbConnection);
 											?>
 										</tbody>
 									</table>
@@ -227,16 +227,16 @@ session_start();
 										</thead>
 										<tbody>
 											<?php
-												//1. Connect to the DB server
-												$dbConnection = mysqli_connect("localhost", "MIS4153", "pirates4thewin", "MPIS", "3306");
-												//1a.  Check connection
-												if (mysqli_connect_errno())
-												{
-													printf("Connection failed. %s\n", mysqli_connect_errno());
-													exit();
-												}
+//												//1. Connect to the DB server
+//												$dbConnection = mysqli_connect("localhost", "MIS4153", "pirates4thewin", "MPIS", "3306");
+//												//1a.  Check connection
+//												if (mysqli_connect_errno())
+//												{
+//													printf("Connection failed. %s\n", mysqli_connect_errno());
+//													exit();
+//												}
 												//2. Send a query to the DB
-												$sql = "SELECT c.ClientId, c.Name, s.Phone FROM Client c WHERE c.Status='Closed'";
+												$sql = "SELECT c.ClientId, c.Name, c.Phone FROM Client c WHERE c.Status='Closed'";
 												if ($clientArray = mysqli_query($dbConnection, $sql))												
 												{
 													//3. Work with the returned data
@@ -251,11 +251,13 @@ session_start();
 													//4. Release the data
 													mysqli_free_result(clientArray);
 												}
-												//5. Close the DB connection
-												mysqli_close($dbConnection);
 											?>
 										</tbody>
 									</table>
+									<?php
+										//FINALLY....close the DB connection
+										mysqli_close($dbConnection);
+									?>
 								</section>
 						</div>
 					</div>
