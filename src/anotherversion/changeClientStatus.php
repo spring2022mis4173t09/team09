@@ -4,16 +4,7 @@
 		$passedClientId=-1;
 		$clientName="";
 		$address="";
-		$phone="";
-		$attorney="";
-		$business="";
-		$maritalStatus="";
-		$yearsMarried="";
-		$numChildren="";
 		$clientStatus="";
-		$clientRequest="";
-		$notes="";
-		$invoiceNumber="";
 ?>
 <!DOCTYPE HTML>
 <!--
@@ -57,7 +48,7 @@
 										   $passedClientId = $_GET['id'];
 										   echo $passedClientId;
 											?>
-											<h3>Update Client Information</h3>
+											<h3>Update Client Status</h3>
 											<hr/>
 									   <?php
 										   //**Need to get data for client id so we can set the form defaults.
@@ -70,7 +61,7 @@
 												exit();
 											}
 											//2. Send a query to the DB
-											$sql = "SELECT Name, Address, Phone, Attorney, Business, MaritalStatus, YearsMarried, NumberChildren, Status, Request, Notes, InvoiceNumber, CreatedOn FROM Client WHERE ClientId=$passedClientId";
+											$sql = "SELECT Name, Address, Status FROM Client WHERE ClientId=$passedClientId";
 										   	if ($clientArray = mysqli_query($dbConnection, $sql))												
 												{
 													//3. Work with the returned data
@@ -78,16 +69,7 @@
 													{
 														$clientName = $clientInfo['Name'];
 														$address = $clientInfo['Address'];
-														$phone = $clientInfo['Phone'];
-														$attorney = $clientInfo['Attorney'];
-														$business = $clientInfo['Business'];
-														$maritalStatus = $clientInfo['MaritalStatus'];
-														$yearsMarried = $clientInfo['YearsMarried'];
-														$numChildren = $clientInfo['NumberChildren'];
 														$clientStatus = $clientInfo['Status'];
-														$clientRequest = $clientInfo['Request'];
-														$notes = $clientInfo['Notes'];
-														$invoiceNumber = $clientInfo['InvoiceNumber'];
 													}
 													//4. Release the data
 													mysqli_free_result(clientArray);
@@ -95,29 +77,12 @@
 													mysqli_close($dbConnection);												
 											}
 									   }
-									  else
-										{
-										?>
-											<h3>Add Client Information</h3>
-											<hr/>
-										<?php
-										}
 									?>
 
 
 									<form method="post" action="clientProcessing.php">
-										Name: <input type="text" name="clientName" required value="<?php echo $clientName ?>"/> <br/>
-										Address: <input type="text" name="address" required value="<?php echo $address ?>"/> <br/>
-										Phone: <input type="text" name="phone" required value="<?php echo $phone ?>"/> <br/>
-										Attorney: <input type="text" name="attorney" value="<?php echo $attorney ?>"/> <br/>
-										Business: <input type="text" name="business" value="<?php echo $business ?>"/> <br/>
-										Marital Status: <select id="maritalStatus" name="maritalStatus">
-															<option value="Single">Single</option>
-															<option value="Married">Married</option>
-															<option value="Divorced">Divorced</option>
-														  </select> <br/>
-										Years Married: <input type="text" name="yearsMarried" value="<?php echo $yearsMarried ?>"/> <br/>
-										Number of Children: <input type="text" name="numChildren" value="<?php echo $numChildren ?>"/> <br/>
+										Name: <?php echo $clientName ?> <br/>
+										Address: <?php echo $address ?> <br/>
 										Status:   <select id="clientStatus" name="clientStatus" required>
 													<option value="Prospect">Prospective Client</option>
 													<option value="WaitingToBeAssigned">Needs Investigator Assignment</option>
@@ -125,10 +90,8 @@
 													<option value="Billing">In Invoicing&#x2F;Billing</option>
 													<option value="Closed">Closed</option>
 												  </select> <br/>
-										Type of Request: <textarea name="requestType" rows="4"><?php echo $clientRequest ?></textarea><br/>
-										Additional Notes: <textarea name="notes" rows="4"><?php echo $notes ?></textarea> <br/>
-										Invoice Number: <input type="text" name="invoiceNumber" value="<?php echo $invoiceNumber ?>"/> <br/>
 										<input type="hidden" name="clientId" value="<?php echo $passedClientId ?>"/>
+										<input type="hidden" name="actionType" value="updateClientStatus"/>
 										<input type="submit" value="Submit" />
 									</form>
 							

@@ -55,7 +55,6 @@
 									   if(isset($_GET['id']))
 									   {
 										   $passedClientId = $_GET['id'];
-										   echo $passedClientId;
 											?>
 											<h3>Update Client Information</h3>
 											<hr/>
@@ -129,6 +128,7 @@
 										Additional Notes: <textarea name="notes" rows="4"><?php echo $notes ?></textarea> <br/>
 										Invoice Number: <input type="text" name="invoiceNumber" value="<?php echo $invoiceNumber ?>"/> <br/>
 										<input type="hidden" name="clientId" value="<?php echo $passedClientId ?>"/>
+										<input type="hidden" name="actionType" value=""/>
 										<input type="submit" value="Submit" />
 									</form>
 							

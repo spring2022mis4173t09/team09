@@ -59,7 +59,7 @@ session_start();
 											$invoiceNumber = $_POST["invoiceNumber"]; 
 											$date = date('Y-m-d H:i:s');
 											$clientId = $_POST["clientId"];
-											echo "clientid=" . $_POST["clientId"];  
+											$actionType = $_POST["actionType"];
 											//1. Connect to the DB server
 											$dbConnection = mysqli_connect("localhost", "MIS4153", "pirates4thewin", "MPIS", "3306");
 											//1a.  Check connection
@@ -70,24 +70,27 @@ session_start();
 											}
 											//2. Send a query to the DB
 											//if client id is less than 0 then I know it is a new client and we need to do an insert
-											if (clientid < 0)
+											if (clientid < 0 && $actionType == '')
 											{
 												$sql = "INSERT INTO client (Name, Address, Phone, Attorney, Business, MaritalStatus, YearsMarried, NumberChildren, Status, Request, Notes, InvoiceNumber, CreatedOn) Values ('$clientName','$address','$phone','$attorney','$business','$maritalStatus','$yearsMarried','$numChildren','$clientStatus','$clientrequest','$note','$invoiceNumber', '$date')";												
 											}
-											else
+											elseif (clientid > 0 && $actionType == '')
 											{
 												//we know the client id is passed and need to perform an update.
 												$sql = "UPDATE client SET Name='$clientName', Address='$address', Phone='$phone', Attorney='$attorney', Business='$business', MaritalStatus='$maritalStatus', YearsMarried='$yearsMarried', NumberChildren='$numChildren', Status='$clientStatus', Request='$clientrequest', Notes='$note', InvoiceNumber='$invoiceNumber' WHERE ClientId=$clientId";						
 											}
-											echo $sql;
-											
+											elseif (clientid < 0 && $actionType == 'updateClientStatus')
+											{
+												//we know the client id is passed and actionType - that we only need to update the client status
+												$sql = "UPDATE client SET Status='$clientStatus' WHERE ClientId=$clientId";						
+											}
 											mysqli_query($dbConnection, $sql);
 
 											//5. Close the DB connection
 											mysqli_close($dbConnection);
 
 											//ouput of form
-											if (clientid < 0)
+											if (clientid < 0 && $actionType == '')
 											{
 												echo "<h5>Thank you.  Your data was added successfully.</h5><p>Here is the information you submitted.<br/>";
 											}
@@ -95,18 +98,28 @@ session_start();
 											{
 												echo "<h5>Thank you.  Your data was successfully updated.</h5><p>Here is the information you submitted.<br/>";
 											}
-											echo "Name: $clientName<br/>";
-											echo "Address: $address<br/>";
-											echo "Phone: $phone<br/>";
-											echo "Attorney: $attorney<br/>";
-											echo "Business: $business<br/>";
-											echo "Marital Status: $maritalStatus<br/>";
-											echo "Years Married: $yearsMarried<br/>";
-											echo "Number of Children: $numChildren<br/>";
-											echo "Status: $clientStatus<br/>";
-											echo "Request: $clientrequest<br/>";
-											echo "Notes: $note<br/>";
-											echo "Invoice Number: $invoiceNumber<br/>";
+											if ($actionType == '')
+											{
+												echo "Name: $clientName<br/>";
+												echo "Address: $address<br/>";
+												echo "Phone: $phone<br/>";
+												echo "Attorney: $attorney<br/>";
+												echo "Business: $business<br/>";
+												echo "Marital Status: $maritalStatus<br/>";
+												echo "Years Married: $yearsMarried<br/>";
+												echo "Number of Children: $numChildren<br/>";
+												echo "Status: $clientStatus<br/>";
+												echo "Request: $clientrequest<br/>";
+												echo "Notes: $note<br/>";
+												echo "Invoice Number: $invoiceNumber<br/>";
+											}
+											elseif ($actionType == 'updateClientStatus')
+											{
+												echo "<h5>Thank you.  Your data was successfully updated.</h5><p>Here is the information you submitted.<br/>";
+												echo "Name: $clientName<br/>";
+												echo "Address: $address<br/>";
+												echo "Status: $clientStatus<br/>";
+											}
 											echo "<h5>You can view the submitted information on the <a href='clients.php'>Clients page</a>.</h5><h5><a href='clients.php' class='button'>Clients</a></h5>";
 										}
 										else
