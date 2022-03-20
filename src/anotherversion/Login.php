@@ -4,8 +4,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
 { 
 	$userName = $_POST["userName"];
 	$password = $_POST["password"];
-	echo $userName;
-	echo $password;
 	//1. Connect to the DB server
 	$dbConnection = mysqli_connect("localhost", "MIS4153", "pirates4thewin", "MPIS", "3306");
 	//1a.  Check connection
@@ -16,7 +14,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
 	}
 	//2. Send a query to the DB
 	$sql = "SELECT FirstName, LastName FROM UserAccount WHERE EmailAddress='$userName' AND PasswordHash='$password'";
-	echo $sql;
 	if ($userAccountArray = mysqli_query($dbConnection, $sql))												
 	{
 		//3. Work with the returned data
