@@ -107,7 +107,6 @@
 										<input type="hidden" name="actionType" value="updateClientStatus"/>
 										<input type="submit" value="Submit" />
 									</form>
-							
 							</section>
 						</div>
 					</div>
