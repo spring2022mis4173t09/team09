@@ -1,1 +1,35 @@
-<?xml version="1.0" encoding="utf-8" ?><dwsync><file name="_actions.scss" server="Macintosh HD/Applications/MAMP/htdocs/AnotherVersion/" local="3657907951" remote="3657907951" Dst="-1" /><file name="_box.scss" server="Macintosh HD/Applications/MAMP/htdocs/AnotherVersion/" local="3657907951" remote="3657907951" Dst="-1" /><file name="_button.scss" server="Macintosh HD/Applications/MAMP/htdocs/AnotherVersion/" local="3657907951" remote="3657907951" Dst="-1" /><file name="_contact.scss" server="Macintosh HD/Applications/MAMP/htdocs/AnotherVersion/" local="3657907951" remote="3657907951" Dst="-1" /><file name="_features.scss" server="Macintosh HD/Applications/MAMP/htdocs/AnotherVersion/" local="3657907951" remote="3657907951" Dst="-1" /><file name="_form.scss" server="Macintosh HD/Applications/MAMP/htdocs/AnotherVersion/" local="3657907951" remote="3657907951" Dst="-1" /><file name="_icon.scss" server="Macintosh HD/Applications/MAMP/htdocs/AnotherVersion/" local="3657907951" remote="3657907951" Dst="-1" /><file name="_icons.scss" server="Macintosh HD/Applications/MAMP/htdocs/AnotherVersion/" local="3657907951" remote="3657907951" Dst="-1" /><file name="_image.scss" server="Macintosh HD/Applications/MAMP/htdocs/AnotherVersion/" local="3657907951" remote="3657907951" Dst="-1" /><file name="_list.scss" server="Macintosh HD/Applications/MAMP/htdocs/AnotherVersion/" local="3657907951" remote="3657907951" Dst="-1" /><file name="_mini-posts.scss" server="Macintosh HD/Applications/MAMP/htdocs/AnotherVersion/" local="3657907951" remote="3657907951" Dst="-1" /><file name="_pagination.scss" server="Macintosh HD/Applications/MAMP/htdocs/AnotherVersion/" local="3657907951" remote="3657907951" Dst="-1" /><file name="_posts.scss" server="Macintosh HD/Applications/MAMP/htdocs/AnotherVersion/" local="3657907951" remote="3657907951" Dst="-1" /><file name="_row.scss" server="Macintosh HD/Applications/MAMP/htdocs/AnotherVersion/" local="3657907951" remote="3657907951" Dst="-1" /><file name="_section.scss" server="Macintosh HD/Applications/MAMP/htdocs/AnotherVersion/" local="3657907951" remote="3657907951" Dst="-1" /><file name="_table.scss" server="Macintosh HD/Applications/MAMP/htdocs/AnotherVersion/" local="3657907951" remote="3657907951" Dst="-1" /></dwsync>
+<?xml version="1.0" encoding="utf-8" ?>
+<dwsync>
+<file name="_actions.scss" server="Macintosh HD/Applications/MAMP/htdocs/AnotherVersion/" local="3657907951" remote="3657907951" Dst="-1" />
+<file name="_box.scss" server="Macintosh HD/Applications/MAMP/htdocs/AnotherVersion/" local="3657907951" remote="3657907951" Dst="-1" />
+<file name="_button.scss" server="Macintosh HD/Applications/MAMP/htdocs/AnotherVersion/" local="3657907951" remote="3657907951" Dst="-1" />
+<file name="_contact.scss" server="Macintosh HD/Applications/MAMP/htdocs/AnotherVersion/" local="3657907951" remote="3657907951" Dst="-1" />
+<file name="_features.scss" server="Macintosh HD/Applications/MAMP/htdocs/AnotherVersion/" local="3657907951" remote="3657907951" Dst="-1" />
+<file name="_form.scss" server="Macintosh HD/Applications/MAMP/htdocs/AnotherVersion/" local="3657907951" remote="3657907951" Dst="-1" />
+<file name="_icon.scss" server="Macintosh HD/Applications/MAMP/htdocs/AnotherVersion/" local="3657907951" remote="3657907951" Dst="-1" />
+<file name="_icons.scss" server="Macintosh HD/Applications/MAMP/htdocs/AnotherVersion/" local="3657907951" remote="3657907951" Dst="-1" />
+<file name="_image.scss" server="Macintosh HD/Applications/MAMP/htdocs/AnotherVersion/" local="3657907951" remote="3657907951" Dst="-1" />
+<file name="_list.scss" server="Macintosh HD/Applications/MAMP/htdocs/AnotherVersion/" local="3657907951" remote="3657907951" Dst="-1" />
+<file name="_mini-posts.scss" server="Macintosh HD/Applications/MAMP/htdocs/AnotherVersion/" local="3657907951" remote="3657907951" Dst="-1" />
+<file name="_pagination.scss" server="Macintosh HD/Applications/MAMP/htdocs/AnotherVersion/" local="3657907951" remote="3657907951" Dst="-1" />
+<file name="_posts.scss" server="Macintosh HD/Applications/MAMP/htdocs/AnotherVersion/" local="3657907951" remote="3657907951" Dst="-1" />
+<file name="_row.scss" server="Macintosh HD/Applications/MAMP/htdocs/AnotherVersion/" local="3657907951" remote="3657907951" Dst="-1" />
+<file name="_section.scss" server="Macintosh HD/Applications/MAMP/htdocs/AnotherVersion/" local="3657907951" remote="3657907951" Dst="-1" />
+<file name="_table.scss" server="Macintosh HD/Applications/MAMP/htdocs/AnotherVersion/" local="3657907951" remote="3657907951" Dst="-1" />
+<file name="_actions.scss" server="C:/wamp64/www/New/" local="132901375643520536" remote="132901339640000000" Dst="2" />
+<file name="_box.scss" server="C:/wamp64/www/New/" local="132901375643550420" remote="132901339640000000" Dst="2" />
+<file name="_button.scss" server="C:/wamp64/www/New/" local="132901375643570363" remote="132901339640000000" Dst="2" />
+<file name="_contact.scss" server="C:/wamp64/www/New/" local="132901375643580330" remote="132901339640000000" Dst="2" />
+<file name="_features.scss" server="C:/wamp64/www/New/" local="132901375643600274" remote="132901339640000000" Dst="2" />
+<file name="_form.scss" server="C:/wamp64/www/New/" local="132901375643610261" remote="132901339640000000" Dst="2" />
+<file name="_icon.scss" server="C:/wamp64/www/New/" local="132901375643620220" remote="132901339640000000" Dst="2" />
+<file name="_icons.scss" server="C:/wamp64/www/New/" local="132901375643640222" remote="132901339640000000" Dst="2" />
+<file name="_image.scss" server="C:/wamp64/www/New/" local="132901375643660123" remote="132901339640000000" Dst="2" />
+<file name="_list.scss" server="C:/wamp64/www/New/" local="132901375643670094" remote="132901339640000000" Dst="2" />
+<file name="_mini-posts.scss" server="C:/wamp64/www/New/" local="132901375643680071" remote="132901339640000000" Dst="2" />
+<file name="_pagination.scss" server="C:/wamp64/www/New/" local="132901375643710001" remote="132901339640000000" Dst="2" />
+<file name="_posts.scss" server="C:/wamp64/www/New/" local="132901375643749942" remote="132901339640000000" Dst="2" />
+<file name="_row.scss" server="C:/wamp64/www/New/" local="132901375643759860" remote="132901339640000000" Dst="2" />
+<file name="_section.scss" server="C:/wamp64/www/New/" local="132901375643779811" remote="132901339640000000" Dst="2" />
+<file name="_table.scss" server="C:/wamp64/www/New/" local="132901375643789775" remote="132901339640000000" Dst="2" />
+</dwsync>
