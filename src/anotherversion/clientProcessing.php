@@ -70,19 +70,19 @@ session_start();
 											}
 											//2. Send a query to the DB
 											//if client id is less than 0 then I know it is a new client and we need to do an insert
-											if (clientid < 0 && $actionType == '')
+											if ($clientId < 0 && $actionType == "")
 											{
 												$sql = "INSERT INTO client (Name, Address, Phone, Attorney, Business, MaritalStatus, YearsMarried, NumberChildren, Status, Request, Notes, InvoiceNumber, CreatedOn) Values ('$clientName','$address','$phone','$attorney','$business','$maritalStatus','$yearsMarried','$numChildren','$clientStatus','$clientrequest','$note','$invoiceNumber', '$date')";												
 											}
-											elseif (clientid > 0 && $actionType == '')
+											elseif ($clientId > 0 && $actionType == "")
 											{
 												//we know the client id is passed and need to perform an update.
 												$sql = "UPDATE client SET Name='$clientName', Address='$address', Phone='$phone', Attorney='$attorney', Business='$business', MaritalStatus='$maritalStatus', YearsMarried='$yearsMarried', NumberChildren='$numChildren', Status='$clientStatus', Request='$clientrequest', Notes='$note', InvoiceNumber='$invoiceNumber' WHERE ClientId=$clientId";						
 											}
-											elseif (clientid < 0 && $actionType == 'updateClientStatus')
+											elseif ($clientId > 0 && $actionType == "updateClientStatus")
 											{
 												//we know the client id is passed and actionType - that we only need to update the client status
-												$sql = "UPDATE client SET Status='$clientStatus' WHERE ClientId=$clientId";						
+												$sql = "UPDATE client SET Status='$clientStatus' WHERE ClientId=$clientId";	
 											}
 											mysqli_query($dbConnection, $sql);
 
@@ -115,7 +115,6 @@ session_start();
 											}
 											elseif ($actionType == 'updateClientStatus')
 											{
-												echo "<h5>Thank you.  Your data was successfully updated.</h5><p>Here is the information you submitted.<br/>";
 												echo "Name: $clientName<br/>";
 												echo "Address: $address<br/>";
 												echo "Status: $clientStatus<br/>";

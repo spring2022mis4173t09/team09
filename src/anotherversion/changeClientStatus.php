@@ -46,7 +46,6 @@
 									   if(isset($_GET['id']))
 									   {
 										   $passedClientId = $_GET['id'];
-										   echo $passedClientId;
 											?>
 											<h3>Update Client Status</h3>
 											<hr/>
@@ -84,17 +83,30 @@
 										Name: <?php echo $clientName ?> <br/>
 										Address: <?php echo $address ?> <br/>
 										Status:   <select id="clientStatus" name="clientStatus" required>
-													<option value="Prospect">Prospective Client</option>
-													<option value="WaitingToBeAssigned">Needs Investigator Assignment</option>
-													<option value="UnderInvestigation">Currently Under Active Investigation</option>
-													<option value="Billing">In Invoicing&#x2F;Billing</option>
-													<option value="Closed">Closed</option>
+														//setting the selected value for the options
+														<?php 
+															if($clientStatus=="Prospect") echo "<option value='Prospect' selected='true'>Prospective Client</option>";
+															else echo "<option value='Prospect'>Prospective Client</option>"; 
+
+															if($clientStatus=="WaitingToBeAssigned") echo "<option value='WaitingToBeAssigned' selected='true'>Needs Investigator Assignment</option>";
+															else echo "<option value='WaitingToBeAssigned'>Needs Investigator Assignment</option>"; 
+
+															if($clientStatus=="UnderInvestigation") echo "<option value='UnderInvestigation' selected='true'>Currently Under Active Investigation</option>";
+															else echo "<option value='UnderInvestigation'>Currently Under Active Investigation</option>";
+
+															if($clientStatus=="Billing") echo "<option value='Billing' selected='true'>In Invoicing&#x2F;Billing</option>";
+															else echo "<option value='Billing'>In Invoicing&#x2F;Billing</option>"; 							
+
+															if($clientStatus=="Closed") echo "<option value='Closed' selected='true'>Closed</option>";
+															else echo "<option value='Closed'>Closed</option>"; 											
+														?>
 												  </select> <br/>
+										<input type="hidden" name="clientName" value="<?php echo $clientName ?>"/>
+										<input type="hidden" name="address" value="<?php echo $address ?>"/>
 										<input type="hidden" name="clientId" value="<?php echo $passedClientId ?>"/>
 										<input type="hidden" name="actionType" value="updateClientStatus"/>
 										<input type="submit" value="Submit" />
 									</form>
-							
 							</section>
 						</div>
 					</div>
