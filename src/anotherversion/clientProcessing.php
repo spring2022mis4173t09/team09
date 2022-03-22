@@ -72,7 +72,9 @@ session_start();
 											//if client id is less than 0 then I know it is a new client and we need to do an insert
 											if ($clientId < 0 && $actionType == "")
 											{
-												$sql = "INSERT INTO client (Name, Address, Phone, Attorney, Business, MaritalStatus, YearsMarried, NumberChildren, Status, Request, Notes, InvoiceNumber, CreatedOn) Values ('$clientName','$address','$phone','$attorney','$business','$maritalStatus','$yearsMarried','$numChildren','$clientStatus','$clientrequest','$note','$invoiceNumber', '$date')";												
+												$sql = "INSERT INTO client (Name, Address, Phone, Attorney, Business, MaritalStatus, YearsMarried, NumberChildren, Status, Request, Notes, InvoiceNumber, CreatedOn) Values ('$clientName','$address','$phone','$attorney','$business','$maritalStatus',
+												($yearsMarried=='')?null:'$yearsMarried'
+													,'$numChildren','$clientStatus','$clientrequest','$note','$invoiceNumber', '$date')";												
 											}
 											elseif ($clientId > 0 && $actionType == "")
 											{
@@ -84,6 +86,7 @@ session_start();
 												//we know the client id is passed and actionType - that we only need to update the client status
 												$sql = "UPDATE client SET Status='$clientStatus' WHERE ClientId=$clientId";	
 											}
+											echo $sql;
 											mysqli_query($dbConnection, $sql);
 
 											//5. Close the DB connection
