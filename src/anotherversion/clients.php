@@ -84,7 +84,7 @@ session_start();
 														echo "</tr>";											
 													}
 													//4. Release the data
-													mysqli_free_result(clientArray);
+													mysqli_free_result($clientArray,);
 												}
 											?>
 										</tbody>
@@ -119,7 +119,7 @@ session_start();
 														echo "</tr>";											
 													}
 													//4. Release the data
-													mysqli_free_result(clientArray);
+													mysqli_free_result($clientArray);
 												}
 											?>
 										</tbody>
@@ -154,7 +154,7 @@ session_start();
 														echo "</tr>";											
 													}
 													//4. Release the data
-													mysqli_free_result(clientArray);
+													mysqli_free_result($clientArray);
 												}
 											?>
 										</tbody>
@@ -189,7 +189,7 @@ session_start();
 														echo "</tr>";											
 													}
 													//4. Release the data
-													mysqli_free_result(clientArray);
+													mysqli_free_result($clientArray);
 												}
 											?>
 										</tbody>
@@ -224,7 +224,7 @@ session_start();
 														echo "</tr>";											
 													}
 													//4. Release the data
-													mysqli_free_result(clientArray);
+													mysqli_free_result($clientArray);
 												}
 											?>
 										</tbody>
