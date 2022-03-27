@@ -71,7 +71,7 @@
 														$clientStatus = $clientInfo['Status'];
 													}
 													//4. Release the data
-													mysqli_free_result(clientArray);
+													mysqli_free_result($clientArray);
 													//5. Close the DB connection
 													mysqli_close($dbConnection);												
 											}
