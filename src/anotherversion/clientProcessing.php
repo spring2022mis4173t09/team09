@@ -51,8 +51,8 @@ session_start();
 											$attorney = $_POST["attorney"];
 											$business = $_POST["business"];
 											$maritalStatus = $_POST["maritalStatus"];
-											$yearsMarried = $_POST["yearsMarried"];
-											$numChildren = $_POST["numChildren"];
+											$yearsMarried = $_POST["yearsMarried"] != '' ? $_POST["yearsMarried"] : 0;
+											$numChildren = $_POST["numChildren"] != '' ? $_POST["numChildren"] : 0;;
 											$clientStatus = $_POST["clientStatus"];
 											$clientrequest = $_POST["requestType"];
 											$note = $_POST["notes"];
@@ -73,20 +73,18 @@ session_start();
 											if ($clientId < 0 && $actionType == "")
 											{
 												$sql = "INSERT INTO client (Name, Address, Phone, Attorney, Business, MaritalStatus, YearsMarried, NumberChildren, Status, Request, Notes, InvoiceNumber, CreatedOn) Values ('$clientName','$address','$phone','$attorney','$business','$maritalStatus',
-												($yearsMarried=='')?null:'$yearsMarried'
-													,'$numChildren','$clientStatus','$clientrequest','$note','$invoiceNumber', '$date')";												
+												$yearsMarried,$numChildren,'$clientStatus','$clientrequest','$note','$invoiceNumber', '$date')";												
 											}
 											elseif ($clientId > 0 && $actionType == "")
 											{
 												//we know the client id is passed and need to perform an update.
-												$sql = "UPDATE client SET Name='$clientName', Address='$address', Phone='$phone', Attorney='$attorney', Business='$business', MaritalStatus='$maritalStatus', YearsMarried='$yearsMarried', NumberChildren='$numChildren', Status='$clientStatus', Request='$clientrequest', Notes='$note', InvoiceNumber='$invoiceNumber' WHERE ClientId=$clientId";						
+												$sql = "UPDATE client SET Name='$clientName', Address='$address', Phone='$phone', Attorney='$attorney', Business='$business', MaritalStatus='$maritalStatus', YearsMarried=$yearsMarried, NumberChildren=$numChildren, Status='$clientStatus', Request='$clientrequest', Notes='$note', InvoiceNumber='$invoiceNumber' WHERE ClientId=$clientId";						
 											}
 											elseif ($clientId > 0 && $actionType == "updateClientStatus")
 											{
 												//we know the client id is passed and actionType - that we only need to update the client status
 												$sql = "UPDATE client SET Status='$clientStatus' WHERE ClientId=$clientId";	
 											}
-											echo $sql;
 											mysqli_query($dbConnection, $sql);
 
 											//5. Close the DB connection
