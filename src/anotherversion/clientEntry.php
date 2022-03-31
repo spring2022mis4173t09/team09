@@ -105,28 +105,40 @@
 
 
 									<form method="post" action="clientProcessing.php">
-										Name: <input type="text" name="clientName" required value="<?php echo $clientName ?>"/> <br/>
-										Address: <input type="text" name="address" required value="<?php echo $address ?>"/> <br/>
-										Phone: <input type="text" name="phone" required value="<?php echo $phone ?>"/> <br/>
-										Attorney: <input type="text" name="attorney" value="<?php echo $attorney ?>"/> <br/>
-										Business: <input type="text" name="business" value="<?php echo $business ?>"/> <br/>
-										Marital Status: <select id="maritalStatus" name="maritalStatus">
+										<label class="required">Name</label><input type="text" name="clientName" required value="<?php echo $clientName ?>"/> <br/>
+										<label class="required">Address</label><input type="text" name="address" required value="<?php echo $address ?>"/> <br/>
+										<label class="required">Phone</label><input type="text" name="phone" required value="<?php echo $phone ?>"/> <br/>
+										<label class="required">Attorney</label><input type="text" name="attorney" value="<?php echo $attorney ?>"/> <br/>
+										<label class="required">Business</label><input type="text" name="business" value="<?php echo $business ?>"/> <br/>
+										<label class="required">Marital Status</label><select id="maritalStatus" name="maritalStatus">
 															<option value="Single">Single</option>
 															<option value="Married">Married</option>
 															<option value="Divorced">Divorced</option>
 														  </select> <br/>
-										Years Married: <input type="text" name="yearsMarried" value="<?php echo $yearsMarried ?>"/> <br/>
-										Number of Children: <input type="text" name="numChildren" value="<?php echo $numChildren ?>"/> <br/>
-										Status:   <select id="clientStatus" name="clientStatus" required>
-													<option value="Prospect">Prospective Client</option>
-													<option value="WaitingToBeAssigned">Needs Investigator Assignment</option>
-													<option value="UnderInvestigation">Currently Under Active Investigation</option>
-													<option value="Billing">In Invoicing&#x2F;Billing</option>
-													<option value="Closed">Closed</option>
+										<label class="required">Years Married</label><input type="text" name="yearsMarried" value="<?php echo $yearsMarried ?>"/> <br/>
+										<label class="required">Number of Children</label><input type="text" name="numChildren" value="<?php echo $numChildren ?>"/> <br/>
+										<label class="required">Status</label><select id="clientStatus" name="clientStatus" required>
+														//setting the selected value for the options
+														<?php 
+															if($clientStatus=="Prospect") echo "<option value='Prospect' selected='true'>Prospective Client</option>";
+															else echo "<option value='Prospect'>Prospective Client</option>"; 
+
+															if($clientStatus=="WaitingToBeAssigned") echo "<option value='WaitingToBeAssigned' selected='true'>Needs Investigator Assignment</option>";
+															else echo "<option value='WaitingToBeAssigned'>Needs Investigator Assignment</option>"; 
+
+															if($clientStatus=="UnderInvestigation") echo "<option value='UnderInvestigation' selected='true'>Currently Under Active Investigation</option>";
+															else echo "<option value='UnderInvestigation'>Currently Under Active Investigation</option>";
+
+															if($clientStatus=="Billing") echo "<option value='Billing' selected='true'>In Invoicing&#x2F;Billing</option>";
+															else echo "<option value='Billing'>In Invoicing&#x2F;Billing</option>"; 							
+
+															if($clientStatus=="Closed") echo "<option value='Closed' selected='true'>Closed</option>";
+															else echo "<option value='Closed'>Closed</option>"; 											
+														?>
 												  </select> <br/>
-										Type of Request: <textarea name="requestType" rows="4"><?php echo $clientRequest ?></textarea><br/>
-										Additional Notes: <textarea name="notes" rows="4"><?php echo $notes ?></textarea> <br/>
-										Invoice Number: <input type="text" name="invoiceNumber" value="<?php echo $invoiceNumber ?>"/> <br/>
+										<label class="required">Type of Request</label><textarea name="requestType" rows="4"><?php echo $clientRequest ?></textarea><br/>
+										<label>Additional Notes</label><textarea name="notes" rows="4"><?php echo $notes ?></textarea> <br/>
+										<label>Invoice Number</label><input type="text" name="invoiceNumber" value="<?php echo $invoiceNumber ?>"/> <br/>
 										<input type="hidden" name="clientId" value="<?php echo $passedClientId ?>"/>
 										<input type="hidden" name="actionType" value=""/>
 										<input type="submit" value="Submit" />

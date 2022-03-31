@@ -55,7 +55,7 @@ session_start();
 
 									<h5 align="right"><a href="clientEntry.php" class="button">Add Client</a></h5>
 									<h4>Prospective Clients</h4>
-									<a href="prospects"/>
+<!--									<a href="prospects"/>-->
 									<table>
 										<thead>
 											<tr>
@@ -90,7 +90,7 @@ session_start();
 										</tbody>
 									</table>
 									<h4>Needs Investigator Assignment</h4>
-									<a href="readyforassignment"/>
+<!--									<a href="readyforassignment"/>-->
 									<table>
 										<thead>
 											<tr>
@@ -125,7 +125,7 @@ session_start();
 										</tbody>
 									</table>
 									<h4>Currently Under Active Investigation</h4>
-									<a href="underinvestigation"/>
+<!--									<a href="underinvestigation"/>-->
 									<table>
 										<thead>
 											<tr>
@@ -160,7 +160,7 @@ session_start();
 										</tbody>
 									</table>
 									<h4>In Invoicing/Billing</h4>
-									<a href="invoicing"/>
+<!--									<a href="invoicing"/>-->
 									<table>
 										<thead>
 											<tr>
@@ -195,7 +195,7 @@ session_start();
 										</tbody>
 									</table>
 									<h4>Closed</h4>
-									<a href="closedclients"/>
+<!--									<a href="closedclients"/>-->
 									<table>
 										<thead>
 											<tr>

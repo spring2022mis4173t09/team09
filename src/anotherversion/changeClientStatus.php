@@ -80,9 +80,9 @@
 
 
 									<form method="post" action="clientProcessing.php">
-										Name: <?php echo $clientName ?> <br/>
-										Address: <?php echo $address ?> <br/>
-										Status:   <select id="clientStatus" name="clientStatus" required>
+										<strong>Name:</strong>&nbsp;&nbsp;&nbsp;<?php echo $clientName ?> <br/><br/>
+										<strong>Address:</strong>&nbsp;&nbsp;&nbsp;<?php echo $address ?> <br/><br/>
+										<label class="required">Status</label><select id="clientStatus" name="clientStatus" required>
 														//setting the selected value for the options
 														<?php 
 															if($clientStatus=="Prospect") echo "<option value='Prospect' selected='true'>Prospective Client</option>";
