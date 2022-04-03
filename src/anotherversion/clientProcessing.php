@@ -91,7 +91,7 @@ session_start();
 											mysqli_close($dbConnection);
 
 											//ouput of form
-											if (clientid < 0 && $actionType == '')
+											if ($clientid < 0 && $actionType == '')
 											{
 												echo "<h5>Thank you.  Your data was added successfully.</h5><p>Here is the information you submitted.<br/>";
 											}
