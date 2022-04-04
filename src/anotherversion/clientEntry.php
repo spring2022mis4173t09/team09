@@ -116,10 +116,10 @@
 															if($maritalStatus=="Single") echo "<option value='Single' selected='true'>Single</option>";
 															else echo "<option value='Single'>Single</option>"; 
 
-															if($$maritalStatus=="Married") echo "<option value='Married' selected='true'>Married</option>";
+															if($maritalStatus=="Married") echo "<option value='Married' selected='true'>Married</option>";
 															else echo "<option value='Married'>Married</option>"; 
 
-															if($$maritalStatus=="Divorced") echo "<option value='Divorced' selected='true'>Divorced</option>";
+															if($maritalStatus=="Divorced") echo "<option value='Divorced' selected='true'>Divorced</option>";
 															else echo "<option value='Divorced'>Divorced</option>";
 										
 														?>
