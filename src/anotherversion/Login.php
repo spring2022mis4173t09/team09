@@ -1,5 +1,6 @@
 <?php
 session_start();
+$errorOnLogin="";
 if ($_SERVER["REQUEST_METHOD"] == "POST")
 { 
 	$userName = $_POST["userName"];
@@ -27,10 +28,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
 		}
 		//4. Release the data
 		mysqli_free_result($userAccountArray);
+		if ($_SESSION["SessionStatus"] != "valid")
+		{
+			$errorOnLogin="The username and password combination is invalid.  Please try again.";
+		}
 	}
 	else
 	{
-		unset($_SESSION["SessionStatus"]);
+		unset($_SESSION["SessionStatus"]);	
 	}
 	//5. Close the DB connection
 	mysqli_close($dbConnection);
@@ -77,8 +82,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
 											?>
 											<h3>Please enter your log in credentials:</h3>
 											<form method="post" action="login.php">
-												Username: <input type="text" name="userName"/> <br/>
-												Password: <input type="password" name="password"/> <br/>
+												<label><i><?php echo $errorOnLogin ?></i></label>
+												<label class="required">Username</label><input type="email" name="userName" required/> <br/>
+												<label class="required">Password</label><input type="password" name="password" required/> <br/>
 												<input type="submit" value="Submit" />
 											</form>
 											<?php
