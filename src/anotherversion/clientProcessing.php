@@ -59,7 +59,7 @@ session_start();
 												$business = $_POST["business"];
 												$maritalStatus = $_POST["maritalStatus"];
 												$yearsMarried = $_POST["yearsMarried"] != '' ? $_POST["yearsMarried"] : 0;
-												$numChildren = $_POST["numChildren"] != '' ? $_POST["numChildren"] : 0;;
+												$numChildren = $_POST["numChildren"] != '' ? $_POST["numChildren"] : 0;
 												$clientrequest = $_POST["requestType"];
 												$note = $_POST["notes"];
 												$invoiceNumber = $_POST["invoiceNumber"]; 

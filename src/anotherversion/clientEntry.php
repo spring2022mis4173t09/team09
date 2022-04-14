@@ -107,7 +107,7 @@
 									<form method="post" action="clientProcessing.php">
 										<label class="required">Name</label><input type="text" name="clientName" required value="<?php echo $clientName ?>"/> <br/>
 										<label class="required">Address</label><input type="text" name="address" required value="<?php echo $address ?>"/> <br/>
-										<label class="required">Phone</label><input type="tel" name="phone" required value="<?php echo $phone ?>"/> <br/>
+										<label class="required">Phone</label><input type="tel" name="phone" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" required value="<?php echo $phone ?>"/> <br/>
 										<label>Attorney</label><input type="text" name="attorney" value="<?php echo $attorney ?>"/> <br/>
 										<label>Business</label><input type="text" name="business" value="<?php echo $business ?>"/> <br/>
 										<label>Marital Status</label><select id="maritalStatus" name="maritalStatus">
