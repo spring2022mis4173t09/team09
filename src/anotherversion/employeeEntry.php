@@ -7,6 +7,7 @@
 	$password="";
 	$emailAddress="";
 	$isActive=0;
+	$isAdmin=0;
 	$lastLoginDate="";
 	$lastPwdChangeDate="";
 	$date = date('Y-m-d');
@@ -21,6 +22,7 @@
 		$password = $_POST["pwd"];		
 		$emailAddress = $_POST["emailAddress"];
 		$isActive = $_POST["isActive"] != '' ? $_POST["isActive"] : 0;
+		$isAdmin = $_POST["isAdmin"] != '' ? $_POST["isAdmin"] : 0;
 		//1. Connect to the DB server
 		$dbConnection = mysqli_connect("localhost", "MIS4153", "pirates4thewin", "MPIS", "3306");
 		//1a.  Check connection
@@ -32,12 +34,12 @@
 		//2. Send a query to the DB
 		if ($passedEmployeeId < 0)
 		{
-			$sql = "INSERT INTO UserAccount (FirstName, LastName, PasswordHash, emailAddress, isActive, lastPwdChangeDate, CreatedDate) Values ('$firstName','$lastName','$password', '$emailAddress', 1,'$date', '$datetime')";
+			$sql = "INSERT INTO UserAccount (FirstName, LastName, PasswordHash, emailAddress, isActive, isAdmin, lastPwdChangeDate, CreatedDate) Values ('$firstName','$lastName','$password', '$emailAddress', 1, $isAdmin, '$date', '$datetime')";
 		}
 		elseif ($passedEmployeeId > 0)
 		{
 			//we know the client id is passed and need to perform an update.
-			$sql = "UPDATE UserAccount SET FirstName='$firstName', LastName='$lastName', EmailAddress='$emailAddress', IsActive=$isActive WHERE UserAccountId=$passedEmployeeId";			
+			$sql = "UPDATE UserAccount SET FirstName='$firstName', LastName='$lastName', EmailAddress='$emailAddress', isActive=$isActive, isAdmin=$isAdmin WHERE UserAccountId=$passedEmployeeId";			
 		}
 		echo $sql;
 		mysqli_query($dbConnection, $sql);
@@ -105,7 +107,7 @@
 												exit();
 											}
 											//2. Send a query to the DB
-											$sql = "SELECT FirstName, LastName, EmailAddress, isActive, LastLoginDate, LastPwdChangeDate FROM UserAccount WHERE UserAccountId=$passedEmployeeId";
+											$sql = "SELECT FirstName, LastName, EmailAddress, isActive, isAdmin, LastLoginDate, LastPwdChangeDate FROM UserAccount WHERE UserAccountId=$passedEmployeeId";
 										   	if ($employeeArray = mysqli_query($dbConnection, $sql))												
 											{
 													//3. Work with the returned data
@@ -115,6 +117,7 @@
 														$lastName = $employeeInfo['LastName'];
 														$emailAddress = $employeeInfo['EmailAddress'];
 														$isActive = $employeeInfo['isActive'];
+														$isAdmin = $employeeInfo['isAdmin'];
 														$lastLoginDate = $employeeInfo['LastLoginDate'];
 														$lastPwdChangeDate = $employeeInfo['LastPwdChangeDate'];
 													}
@@ -143,19 +146,28 @@
 											{
 												echo "<label class='required'>Password</label><input type='password' name='pwd' required /> <br/>";
 												echo "<input type='hidden' name='isActive' value='1'/>";
+												echo "<input type='checkbox' id='isAdmin' name='isAdmin' value='1' ><label for='isAdmin'> Administrator</label><br/>";
 											}
 											else
 											{
 												if ($isActive==1)
 												{
-													echo "<input type='checkbox' id='isActive' name='isActive' value='1' checked><label for='isActive'> Active</label><br>";
-
+													echo "<input type='checkbox' id='isActive' name='isActive' value='1' checked><label for='isActive'> Active</label><br/>";
 												}
 												else
 												{
-													echo "<input type='checkbox' id='isActive' name='isActive' value='1'><label for='isActive'> Active</label><br>";
+													echo "<input type='checkbox' id='isActive' name='isActive' value='1'><label for='isActive'> Active</label><br/>";
 												}
-												echo "<strong>Password Last Changed Date:&nbsp;&nbsp;</strong>$lastPwdChangeDate <br/>";
+												if ($isAdmin==1)
+												{
+													echo "<input type='checkbox' id='isAdmin' name='isAdmin' value='1' checked><label for='isAdmin'> Administrator</label><br/>";
+												}
+												else
+												{
+													echo "<input type='checkbox' id='isAdmin' name='isAdmin' value='1'><label for='isAdmin'> Administrator</label><br/>";
+												}
+												
+												echo "<br/><strong>Password Last Changed Date:&nbsp;&nbsp;</strong>$lastPwdChangeDate <br/>";
 												echo "<strong>Last Login Date:&nbsp;&nbsp;</strong>$lastLoginDate <br/><br/>";
 											}
 										?>
@@ -176,7 +188,7 @@
 										<h2>Menu</h2>
 									</header>
 									<ul>
-										<li><a href="clients.php">Clients</a></li>
+										<li><a href="employees.php">Employees</a></li>
 										<li><a href="logout.php">Log out</a></li>
 									</ul>
 								</nav>

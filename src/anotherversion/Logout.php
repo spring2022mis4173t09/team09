@@ -58,8 +58,7 @@ unset($_SESSION["SessionStatus"]);
 										<h2>Menu</h2>
 									</header>
 									<ul>
-										<li><a href="clients.php">Clients</a></li>
-										<li><a href="logout.php">Log out</a></li>
+										<li><a href="login.php">Log In</a></li>
 									</ul>
 								</nav>
 							<!-- Footer -->

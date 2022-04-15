@@ -63,14 +63,14 @@ session_start();
 												<th width="300px">First Name</th>
 												<th width="300px">Last Name</th>
 												<th>Email</th>
-												<th align="right"></th>
+												<th>Administator?</th>
 												<th align="left"></th>
 											</tr>
 										</thead>
 										<tbody>
 											<?php
 												//RUN Employee query - ative users
-												$sql = "SELECT UserAccountId, FirstName, LastName, EmailAddress FROM UserAccount WHERE IsActive=1";
+												$sql = "SELECT UserAccountId, FirstName, LastName, EmailAddress, isAdmin FROM UserAccount WHERE IsActive=1";
 												if ($employeeArray = mysqli_query($dbConnection, $sql))												
 												{
 													//3. Work with the returned data
@@ -81,6 +81,7 @@ session_start();
 														echo "<td>" . $employeeInfo['FirstName'] . "</td>";
 														echo "<td>" . $employeeInfo['LastName'] . "</td>";
 														echo "<td>" . $employeeInfo['EmailAddress'] . "</td>";
+														echo $employeeInfo['isAdmin'] != 1 ?  "<td>No</td>" : "<td>Yes</td>";
 														echo "<td align='right'><a href='employeeEntry.php?id=" .$employeeInfo['UserAccountId'] . "' class='icon solid fa-edit' title='Edit'></td>";
 														echo "</tr>";											
 													}
@@ -98,14 +99,14 @@ session_start();
 												<th width="300px">First Name</th>
 												<th width="300px">Last Name</th>
 												<th>Email</th>
-												<th align="right"></th>
+												<th>Administator?</th>
 												<th align="left"></th>
 											</tr>
 										</thead>
 										<tbody>
 											<?php
 												//RUN Employee query - ative users
-												$sql = "SELECT UserAccountId, FirstName, LastName, EmailAddress FROM UserAccount WHERE IsActive=0";
+												$sql = "SELECT UserAccountId, FirstName, LastName, EmailAddress, isAdmin FROM UserAccount WHERE IsActive=0";
 												if ($employeeArray = mysqli_query($dbConnection, $sql))												
 												{
 													//3. Work with the returned data
@@ -116,6 +117,7 @@ session_start();
 														echo "<td>" . $employeeInfo['FirstName'] . "</td>";
 														echo "<td>" . $employeeInfo['LastName'] . "</td>";
 														echo "<td>" . $employeeInfo['EmailAddress'] . "</td>";
+														echo $employeeInfo['isAdmin'] != 1 ?  "<td>No</td>" : "<td>Yes</td>";
 														echo "<td align='right'><a href='employeeEntry.php?id=" .$employeeInfo['UserAccountId'] . "' class='icon solid fa-edit' title='Edit'></td>";
 														echo "</tr>";											
 													}
@@ -143,7 +145,7 @@ session_start();
 										<h2>Menu</h2>
 									</header>
 									<ul>
-										<li><a href="clients.php">Clients</a></li>
+										<li><a href="employees.php">Employees</a></li>
 										<li><a href="logout.php">Log out</a></li>
 									</ul>
 								</nav>

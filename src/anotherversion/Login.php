@@ -14,7 +14,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
 		exit();
 	}
 	//2. Send a query to the DB
-	$sql = "SELECT FirstName, LastName FROM UserAccount WHERE EmailAddress='$userName' AND PasswordHash='$password'";
+	$sql = "SELECT FirstName, LastName, isAdmin FROM UserAccount WHERE EmailAddress='$userName' AND PasswordHash='$password'";
 	if ($userAccountArray = mysqli_query($dbConnection, $sql))												
 	{
 		//3. Work with the returned data
@@ -23,8 +23,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
 			echo "<tr>";
 			echo "<td>" . $userAccountInfo['FirstName'] . "</td>";
 			echo "<td>" . $userAccountInfo['LastName'] . "</td>";
+			echo "<td>" . $userAccountInfo['isAdmin'] . "</td>";
 			echo "</tr>";	
 			$_SESSION["SessionStatus"] = "valid";
+			$_SESSION["isAdmin"] = $userAccountInfo['isAdmin'];
 		}
 		//4. Release the data
 		mysqli_free_result($userAccountArray);
@@ -72,11 +74,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
 								<section class="major">
 									<span class="image main"><img src="images/policereport.jpeg" alt="Log In " /></span>
 									<?php
-										if (isset($_SESSION["SessionStatus"]))
+										if (isset($_SESSION["SessionStatus"]) && $_SESSION["isAdmin"] == 0)
 										{
 											header("Location: clients.php");
 											die();
-										} 
+										}
+										else if (isset($_SESSION["SessionStatus"]) && $_SESSION["isAdmin"] == 1)
+										{
+											header("Location: employees.php");
+											die();
+										}
 										else
 										{
 											?>
