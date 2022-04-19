@@ -87,7 +87,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
 										else
 										{
 											?>
-											<h3>Please enter your log in credentials:</h3>
+											<h3>Please enter your log in credentials</h3>
 											<form method="post" action="login.php">
 												<label><i><?php echo $errorOnLogin ?></i></label>
 												<label class="required">Username</label><input type="email" name="userName" required/> <br/>
