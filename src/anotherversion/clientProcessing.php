@@ -45,21 +45,26 @@ session_start();
 									<?php
 										if (isset($_SESSION["SessionStatus"]))
 										{ 
+											//always get these values
+											$actionType = $_POST["actionType"];
 											$clientName = $_POST["clientName"];
 											$address = $_POST["address"];
-											$phone = $_POST["phone"];
-											$attorney = $_POST["attorney"];
-											$business = $_POST["business"];
-											$maritalStatus = $_POST["maritalStatus"];
-											$yearsMarried = $_POST["yearsMarried"] != '' ? $_POST["yearsMarried"] : 0;
-											$numChildren = $_POST["numChildren"] != '' ? $_POST["numChildren"] : 0;;
 											$clientStatus = $_POST["clientStatus"];
-											$clientrequest = $_POST["requestType"];
-											$note = $_POST["notes"];
-											$invoiceNumber = $_POST["invoiceNumber"]; 
-											$date = date('Y-m-d H:i:s');
-											$clientId = $_POST["clientId"];
-											$actionType = $_POST["actionType"];
+											$clientId = $_POST["clientId"];  		
+											//only get these values if the request is an add or update client
+											if ($actionType == '')
+											{
+												$phone = $_POST["phone"];
+												$attorney = $_POST["attorney"];
+												$business = $_POST["business"];
+												$maritalStatus = $_POST["maritalStatus"];
+												$yearsMarried = $_POST["yearsMarried"] != '' ? $_POST["yearsMarried"] : 0;
+												$numChildren = $_POST["numChildren"] != '' ? $_POST["numChildren"] : 0;
+												$clientrequest = $_POST["requestType"];
+												$note = $_POST["notes"];
+												$invoiceNumber = $_POST["invoiceNumber"]; 
+												$date = date('Y-m-d H:i:s');
+											}
 											//1. Connect to the DB server
 											$dbConnection = mysqli_connect("localhost", "MIS4153", "pirates4thewin", "MPIS", "3306");
 											//1a.  Check connection
@@ -91,7 +96,7 @@ session_start();
 											mysqli_close($dbConnection);
 
 											//ouput of form
-											if ($clientid < 0 && $actionType == '')
+											if ($clientId < 0 && $actionType == '')
 											{
 												echo "<h5>Thank you.  Your data was added successfully.</h5><p>Here is the information you submitted.<br/>";
 											}
@@ -120,6 +125,7 @@ session_start();
 												echo "Address: $address<br/>";
 												echo "Status: $clientStatus<br/>";
 											}
+											
 											echo "<h5>You can view the submitted information on the <a href='clients.php'>Clients page</a>.</h5><h5><a href='clients.php' class='button'>Clients</a></h5>";
 										}
 										else
